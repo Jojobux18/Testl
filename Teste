@@ -1,0 +1,105 @@
+--Load
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/hakaiofc/Base/main/HUBORION')))()
+
+--Main Script
+local Window = OrionLib:MakeWindow({Name = "em Teste 🥋 V1", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest", IntroEnabled = false})
+
+--Valor
+_G.AutoFlexao = True
+
+--Função
+function AutoFlexao()
+while _G.AutoFlexao == true do
+game:GetService("ReplicatedStorage").Remotes.Pushup:FireServer()
+wait(0.8)
+end
+end
+
+
+--Valor
+_G.AutoSitup = True
+
+--Função
+function AutoSitup()
+while _G.AutoSitup == true do
+game:GetService("ReplicatedStorage").Remotes.Situp:FireServer()
+wait(0.8)
+end
+end
+
+
+
+
+
+--Main
+local MainTab = Window:MakeTab({
+    Name = "Main",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+local Section = MainTab:AddSection({
+    Name = "Training"
+})
+MainTab:AddToggle({
+    Name = "Pushup",
+    Default = false,
+    Callback = function(Value)
+        _G.AutoFlexao = Value
+        AutoFlexao()
+    end
+})
+MainTab:AddToggle({
+    Name = "Situp",
+    Default = false,
+    Callback = function(Value)
+        _G.AutoSitup = Value
+        AutoSitup()
+    end
+})
+
+
+
+
+--Dojo 
+local DojoTab = Window:MakeTab({
+    Name = "Teleport",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+local Section = DojoTab:AddSection({
+    Name = "Dojo"
+})
+DojoTab:AddButton({
+    Name = "Cobra Kai Karate",
+    Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5.265899658203125, 14.889445304870605, 61.795326232910156)
+end
+})
+DojoTab:AddButton({
+    Name = "Miyagi-do Karate",
+    Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(436.1364440917969, 12.99999713897705, -371.27813720703125)
+end
+})
+DojoTab:AddButton({
+    Name = "Eagle fang Karate",
+    Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(18.93939971923828, 14.79999828338623, 308.17303466796875)
+end
+})
+
+local Section = DojoTab:AddSection({
+    Name = "Tp"
+})
+DojoTab:AddButton({
+    Name = "Championship",
+    Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(21.266836166381836, 23.544918060302734, -192.11289978027344)
+end
+})
+DojoTab:AddButton({
+    Name = "Tables",
+    Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-49.577186584472656, 14.180010795593262, -97.83731842041016)
+end
+})
